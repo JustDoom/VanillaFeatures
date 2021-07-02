@@ -23,8 +23,8 @@ import net.minestom.server.network.ConnectionManager;
 import net.minestom.server.utils.Position;
 import net.minestom.server.utils.Vector;
 import net.minestom.server.utils.time.TimeUnit;
-//import org.spongepowered.configurate.CommentedConfigurationNode;
-//import org.spongepowered.configurate.yaml.YamlConfigurationLoader;
+import org.spongepowered.configurate.CommentedConfigurationNode;
+import org.spongepowered.configurate.yaml.YamlConfigurationLoader;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -37,7 +37,7 @@ public class VanillaFeatures extends Extension {
         return instance;
     }
 
-    //public CommentedConfigurationNode root;
+    public CommentedConfigurationNode root;
 
     public VanillaFeatures(){
         instance = this;
@@ -51,7 +51,7 @@ public class VanillaFeatures extends Extension {
         InstanceManager instanceManager = MinecraftServer.getInstanceManager();
         InstanceContainer instanceContainer = instanceManager.createInstanceContainer();
 
-        /**try {
+        try {
             if(!FileUtil.doesFileExist("./extensions/VanillaFeatures"))
                 FileUtil.createDirectory("./extensions/VanillaFeatures");
 
@@ -59,8 +59,8 @@ public class VanillaFeatures extends Extension {
                 FileUtil.addConfig("./extensions/VanillaFeatures/config.yml");
         } catch (IOException e) {
             e.printStackTrace();
-        }**/
-/**
+        }
+
         final YamlConfigurationLoader loader = YamlConfigurationLoader.builder()
                 .path(Path.of("./extensions/VanillaFeatures/config.yml")) // Set where we will load and save to
                 .build();
@@ -74,7 +74,7 @@ public class VanillaFeatures extends Extension {
             }
             System.exit(1);
             return;
-        }**/
+        }
 
         System.out.println("VanillaFeatures has been started");
 
