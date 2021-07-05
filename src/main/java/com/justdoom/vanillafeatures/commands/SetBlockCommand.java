@@ -12,6 +12,7 @@ import net.minestom.server.entity.Entity;
 import net.minestom.server.entity.Player;
 import net.minestom.server.instance.batch.AbsoluteBlockBatch;
 import net.minestom.server.instance.block.Block;
+import net.minestom.server.utils.BlockPosition;
 import net.minestom.server.utils.Position;
 import net.minestom.server.utils.location.RelativeVec;
 import org.jetbrains.annotations.NotNull;
@@ -29,7 +30,7 @@ public class SetBlockCommand extends Command {
         blockState = new ArgumentBlockState("block");
         pos = ArgumentType.RelativeVec3("pos");
 
-        addSyntax(this::execute, blockState, pos);
+        addSyntax(this::execute, pos, blockState);
     }
 
     private void execute(@NotNull CommandSender sender, @NotNull CommandContext context) {
@@ -39,7 +40,9 @@ public class SetBlockCommand extends Command {
         final short blockId = context.get(blockState).getBlockId();
         if(sender instanceof Player){
             AbsoluteBlockBatch batch = new AbsoluteBlockBatch();
-            batch.setBlock(position.toBlockPosition(), Block.fromStateId(blockId));
+            BlockPosition pos = position.toBlockPosition();
+            //pos.setY(position.toBlockPosition().getY() - 1);
+            batch.setBlock(pos, Block.fromStateId(blockId));
 
             batch.apply(((Player) sender).getInstance(), null);
 
