@@ -27,11 +27,13 @@ public class PlayerInit {
 
         ConnectionManager connectionManager = MinecraftServer.getConnectionManager();
         connectionManager.addPlayerInitialization(player -> {
-            player.addEventCallback(PlayerBlockBreakEvent.class, event -> {
-                if(player.getGameMode() != GameMode.CREATIVE){
-                    VanillaBlocks.dropOnBreak(player.getInstance(), event.getBlockPosition());
-                }
-            });
+            if(VanillaFeatures.getInstance().root.node("block-drops", "enabled").getBoolean()) {
+                player.addEventCallback(PlayerBlockBreakEvent.class, event -> {
+                    if (player.getGameMode() != GameMode.CREATIVE) {
+                        VanillaBlocks.dropOnBreak(player.getInstance(), event.getBlockPosition());
+                    }
+                });
+            }
 
             player.addEventCallback(PickupItemEvent.class, event -> {
                 boolean couldAdd = player.getInventory().addItemStack(event.getItemStack());

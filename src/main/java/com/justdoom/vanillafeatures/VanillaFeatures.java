@@ -77,20 +77,28 @@ public class VanillaFeatures extends Extension {
         new PlayerInit();
 
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
-        globalEventHandler.addListener(PlayerLoginEvent.class, event -> {
-            final Player player = event.getPlayer();
 
-            for (Player p : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
-                p.sendMessage(ColoredText.of(ChatColor.YELLOW, player.getUsername() + " has joined the game"));
-            }
-        });
+        if(root.node("join-message", "enabled").getBoolean()) {
+            globalEventHandler.addListener(PlayerLoginEvent.class, event -> {
+                final Player player = event.getPlayer();
 
-        globalEventHandler.addListener(PlayerDisconnectEvent.class, event -> {
-            final Player player = event.getPlayer();
-            for (Player p : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
-                p.sendMessage(ColoredText.of(ChatColor.YELLOW, player.getUsername() + " has left the game"));
-            }
-        });
+                String msg = root.node("join-message", "message").getString().replaceAll("[{player}]", player.getUsername());
+                for (Player p : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
+                    p.sendMessage(ColoredText.of(ChatColor.YELLOW, msg));
+                }
+            });
+        }
+
+        if(root.node("quit-message", "enabled").getBoolean()) {
+            globalEventHandler.addListener(PlayerDisconnectEvent.class, event -> {
+                final Player player = event.getPlayer();
+
+                String msg = root.node("quit-message", "message").getString().replaceAll("[{player}]", player.getUsername());
+                for (Player p : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
+                    p.sendMessage(ColoredText.of(ChatColor.YELLOW, msg));
+                }
+            });
+        }
 
         getLogger().info("VanillaFeatures has been started");
     }

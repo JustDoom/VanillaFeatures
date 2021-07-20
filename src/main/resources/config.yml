@@ -1,1 +1,12 @@
-block-drops: true
+join-message:
+  enabled: true
+  message: '{player} has joined the game'
+
+quit-message:
+  enabled: true
+  message: '{player} has left the game'
+
+# Still WIP and not finished
+# Enchants don't work
+block-drops:
+  enabled: true
