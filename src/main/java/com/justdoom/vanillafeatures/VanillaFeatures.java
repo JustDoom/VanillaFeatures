@@ -7,7 +7,10 @@ import net.minestom.server.MinecraftServer;
 import net.minestom.server.chat.ChatColor;
 import net.minestom.server.chat.ColoredText;
 import net.minestom.server.entity.Player;
+import net.minestom.server.event.Event;
+import net.minestom.server.event.EventNode;
 import net.minestom.server.event.GlobalEventHandler;
+import net.minestom.server.event.entity.EntityTickEvent;
 import net.minestom.server.event.player.PlayerDisconnectEvent;
 import net.minestom.server.event.player.PlayerLoginEvent;
 import net.minestom.server.extensions.Extension;
@@ -39,9 +42,6 @@ public class VanillaFeatures extends Extension {
         MinecraftServer.getCommandManager().register(new SetBlockCommand());
 
         VanillaLootTables.register(MinecraftServer.getLootTableManager());
-
-        InstanceManager instanceManager = MinecraftServer.getInstanceManager();
-        InstanceContainer instanceContainer = instanceManager.createInstanceContainer();
 
         try {
             if(!FileUtil.doesFileExist("./extensions/VanillaFeatures"))
@@ -78,8 +78,6 @@ public class VanillaFeatures extends Extension {
         globalEventHandler.addListener(PlayerLoginEvent.class, event -> {
             final Player player = event.getPlayer();
 
-            event.setSpawningInstance(instanceContainer);
-            player.setRespawnPoint(new Position(0, 42, 0));
             for (Player p : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
                 p.sendMessage(ColoredText.of(ChatColor.YELLOW, player.getUsername() + " has joined the game"));
             }

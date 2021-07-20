@@ -36,19 +36,21 @@ public class SetBlockCommand extends Command {
     private void execute(@NotNull CommandSender sender, @NotNull CommandContext context) {
         final RelativeVec relativeVec = context.get(pos);
         final Position position = relativeVec.from((Entity) sender).toPosition();
+        position.setY(position.getY() - 0.5);
 
         final short blockId = context.get(blockState).getBlockId();
-        if(sender instanceof Player){
-            AbsoluteBlockBatch batch = new AbsoluteBlockBatch();
-            BlockPosition pos = position.toBlockPosition();
-            //pos.setY(position.toBlockPosition().getY() - 1);
-            batch.setBlock(pos, Block.fromStateId(blockId));
 
-            batch.apply(((Player) sender).getInstance(), null);
-
-            context.setReturnData(new CommandData().set("value", "number"));
-        } else {
+        if (!(sender instanceof Player)) {
             sender.sendMessage("A player is required to run this command here");
+            return;
         }
+        
+        AbsoluteBlockBatch batch = new AbsoluteBlockBatch();
+        BlockPosition pos = position.toBlockPosition();
+        batch.setBlock(pos, Block.fromStateId(blockId));
+
+        batch.apply(((Player) sender).getInstance(), null);
+
+        context.setReturnData(new CommandData().set("value", "number"));
     }
 }
