@@ -2,6 +2,7 @@ package com.justdoom.vanillafeatures;
 
 import com.justdoom.vanillafeatures.commands.GameModeCommand;
 import com.justdoom.vanillafeatures.commands.SetBlockCommand;
+import com.justdoom.vanillafeatures.commands.TeleportCommand;
 import com.justdoom.vanillafeatures.gamedata.loottables.VanillaLootTables;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.chat.ChatColor;
@@ -40,6 +41,7 @@ public class VanillaFeatures extends Extension {
     public void initialize(){
         MinecraftServer.getCommandManager().register(new GameModeCommand());
         MinecraftServer.getCommandManager().register(new SetBlockCommand());
+        MinecraftServer.getCommandManager().register(new TeleportCommand());
 
         VanillaLootTables.register(MinecraftServer.getLootTableManager());
 
