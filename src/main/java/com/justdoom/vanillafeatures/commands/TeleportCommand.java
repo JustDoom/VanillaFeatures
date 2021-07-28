@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 public class TeleportCommand extends Command {
 
     public TeleportCommand() {
-        super("gamemode");
+        super("teleport");
 
         setCondition(Conditions::playerOnly);
 
@@ -33,6 +33,11 @@ public class TeleportCommand extends Command {
             return;
         }
 
+        if(!player.hasPermission("vanillafeatures.teleport")){
+            player.sendMessage("You do not have permission to run this command");
+            return;
+        }
+
         sender.asPlayer().setInstance(player.getInstance());
         sender.asPlayer().teleport(player.getPosition());
         sender.sendMessage("Teleported to " + player.getUsername());
@@ -43,6 +48,11 @@ public class TeleportCommand extends Command {
         final Player playerTarget = context.get("target");
         if(!(sender instanceof Player)) {
             sender.sendMessage("A player is required to run this command here");
+            return;
+        }
+
+        if(!player.hasPermission("vanillafeatures.teleport")){
+            player.sendMessage("You do not have permission to run this command");
             return;
         }
 

@@ -34,6 +34,11 @@ public class GameModeCommand extends Command {
             return;
         }
 
+        if(!sender.asPlayer().hasPermission("vanillafeatures.gamemode")){
+            sender.asPlayer().sendMessage("You do not have permission to run this command");
+            return;
+        }
+
         ((Player) sender).setGameMode(gamemode);
         sender.sendMessage("Set own game mode to " + gamemode.name().toLowerCase() + " Mode");
     }
@@ -45,6 +50,11 @@ public class GameModeCommand extends Command {
 
         if(!(sender instanceof Player)) {
             sender.sendMessage("A player is required to run this command here");
+            return;
+        }
+
+        if(!sender.asPlayer().hasPermission("vanillafeatures.gamemode")){
+            sender.asPlayer().sendMessage("You do not have permission to run this command");
             return;
         }
 

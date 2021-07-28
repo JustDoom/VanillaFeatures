@@ -44,6 +44,11 @@ public class SetBlockCommand extends Command {
             sender.sendMessage("A player is required to run this command here");
             return;
         }
+
+        if(!sender.asPlayer().hasPermission("vanillafeatures.setblock")){
+            sender.asPlayer().sendMessage("You do not have permission to run this command");
+            return;
+        }
         
         AbsoluteBlockBatch batch = new AbsoluteBlockBatch();
         BlockPosition pos = position.toBlockPosition();
