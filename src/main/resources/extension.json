@@ -8,5 +8,15 @@
     "artifacts": [
       "org.spongepowered:configurate-yaml:4.1.1"
     ]
+  },
+  "meta": {
+    "permissions": [
+      "vanillafeatures.gamemode",
+      "vanillafeatures.setblock",
+      "vanillafeatures.teleport",
+      "vf.gamemode",
+      "vf.setblock",
+      "vf.teleport"
+    ]
   }
 }

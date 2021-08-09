@@ -6,7 +6,6 @@ import net.minestom.server.instance.Instance;
 import net.minestom.server.instance.block.Block;
 import net.minestom.server.instance.block.CustomBlock;
 import net.minestom.server.utils.BlockPosition;
-import net.minestom.server.utils.time.UpdateOption;
 import org.jglrxavpok.hephaistos.nbt.NBTCompound;
 
 import java.util.List;
@@ -84,11 +83,6 @@ public abstract class VanillaBlock extends CustomBlock {
     @Override
     public boolean onInteract(Player player, Player.Hand hand, BlockPosition blockPosition, Data data) {
         return false;
-    }
-
-    @Override
-    public UpdateOption getUpdateOption() {
-        return null;
     }
 
     public short getBaseBlockId() {
