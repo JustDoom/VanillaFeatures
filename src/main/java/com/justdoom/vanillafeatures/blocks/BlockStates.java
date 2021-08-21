@@ -1,4 +1,4 @@
-package com.justdoom.vanillafeatures.blocks;
+/**package com.justdoom.vanillafeatures.blocks;
 
 import it.unimi.dsi.fastutil.shorts.Short2ObjectOpenHashMap;
 import net.minestom.server.instance.Instance;
@@ -16,7 +16,7 @@ public class BlockStates {
     /**
      * Map that stores a comma-separated list of properties, sorted by alphabetical order as key,
      * and the corresponding block state as value
-     */
+     *
     private final Map<String, BlockState> nameLookup = new HashMap<>();
     private final Short2ObjectOpenHashMap<BlockState> idLookup = new Short2ObjectOpenHashMap<>();
     private final BlockPropertyList properties;
@@ -28,7 +28,7 @@ public class BlockStates {
 
     /**
      * Adds a new blockstate to the known ones
-     */
+     *
     void add(BlockState blockState) {
         states.add(blockState);
         String lookupKey = properties.computeSortedList().stream()
@@ -43,7 +43,7 @@ public class BlockStates {
      * the value 'value'
      * @param properties
      * @return
-     */
+     *
     public BlockState getState(Map<String, String> properties) {
         String lookupKey = properties.entrySet().stream()
                 .sorted(Comparator.comparing(Map.Entry::getKey))
@@ -56,7 +56,7 @@ public class BlockStates {
      * Gets a BlockState based on its protocol id. Return {@link #getDefault()} if none found
      * @param id
      * @return
-     */
+     *
     public BlockState fromStateID(short id) {
         return idLookup.getOrDefault(id, getDefault());
     }
@@ -68,7 +68,7 @@ public class BlockStates {
      * @param key
      * @param value
      * @return
-     */
+     *
     public BlockState getStateWithChange(Map<String, String> properties, String key, String value) {
         String lookupKey = properties.entrySet().stream()
                 .sorted(Comparator.comparing(Map.Entry::getKey))
@@ -93,10 +93,11 @@ public class BlockStates {
      * @param instance
      * @param blockPosition
      * @return
-     */
+     *
     public BlockState getFromInstance(Instance instance, BlockPosition blockPosition) {
         short id = instance.getBlockStateId(blockPosition);
         BlockAlternative alternative = Block.fromStateId(id).getAlternative(id);
         return getState(alternative.createPropertiesMap());
     }
 }
+ **/

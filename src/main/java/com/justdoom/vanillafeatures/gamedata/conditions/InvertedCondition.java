@@ -1,4 +1,4 @@
-package com.justdoom.vanillafeatures.gamedata.conditions;
+/**package com.justdoom.vanillafeatures.gamedata.conditions;
 
 import com.google.gson.*;
 import net.minestom.server.data.Data;
@@ -35,4 +35,4 @@ public class InvertedCondition implements Condition {
             return new InvertedCondition(container.create(lootTableManager));
         }
     }
-}
+}**/

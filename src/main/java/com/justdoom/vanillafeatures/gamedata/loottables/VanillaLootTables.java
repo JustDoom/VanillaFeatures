@@ -1,4 +1,4 @@
-package com.justdoom.vanillafeatures.gamedata.loottables;
+/**package com.justdoom.vanillafeatures.gamedata.loottables;
 
 import com.justdoom.vanillafeatures.gamedata.conditions.AlternativesCondition;
 import com.justdoom.vanillafeatures.gamedata.conditions.InvertedCondition;
@@ -23,4 +23,4 @@ public final class VanillaLootTables {
         tableManager.registerConditionDeserializer(NamespaceID.from("minecraft:alternative"), new AlternativesCondition.Deserializer(tableManager));
         tableManager.registerTableType(NamespaceID.from("minecraft:block"), new BlockType());
     }
-}
+}**/

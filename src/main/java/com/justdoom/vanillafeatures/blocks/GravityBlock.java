@@ -1,4 +1,4 @@
-package com.justdoom.vanillafeatures.blocks;
+/**package com.justdoom.vanillafeatures.blocks;
 
 import com.justdoom.vanillafeatures.entity.FallingBlockEntity;
 import net.minestom.server.data.Data;
@@ -43,4 +43,4 @@ public class GravityBlock extends VanillaBlock {
     protected BlockPropertyList createPropertyValues() {
         return new BlockPropertyList();
     }
-}
+}**/
