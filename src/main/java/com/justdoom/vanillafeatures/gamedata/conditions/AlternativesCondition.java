@@ -1,4 +1,4 @@
-package com.justdoom.vanillafeatures.gamedata.conditions;
+/**package com.justdoom.vanillafeatures.gamedata.conditions;
 
 import com.google.gson.*;
 import net.minestom.server.data.Data;
@@ -45,4 +45,4 @@ public class AlternativesCondition implements Condition {
             return new AlternativesCondition(terms);
         }
     }
-}
+}**/

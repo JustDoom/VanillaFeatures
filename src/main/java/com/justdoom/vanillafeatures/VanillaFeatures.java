@@ -5,18 +5,11 @@ import com.justdoom.vanillafeatures.commands.SetBlockCommand;
 import com.justdoom.vanillafeatures.commands.TeleportCommand;
 import com.justdoom.vanillafeatures.gamedata.loottables.VanillaLootTables;
 import net.minestom.server.MinecraftServer;
-import net.minestom.server.chat.ChatColor;
-import net.minestom.server.chat.ColoredText;
 import net.minestom.server.entity.Player;
-import net.minestom.server.event.Event;
-import net.minestom.server.event.EventNode;
 import net.minestom.server.event.GlobalEventHandler;
-import net.minestom.server.event.entity.EntityTickEvent;
 import net.minestom.server.event.player.PlayerDisconnectEvent;
 import net.minestom.server.event.player.PlayerLoginEvent;
 import net.minestom.server.extensions.Extension;
-import net.minestom.server.instance.*;
-import net.minestom.server.utils.Position;
 import org.spongepowered.configurate.CommentedConfigurationNode;
 import org.spongepowered.configurate.yaml.YamlConfigurationLoader;
 
@@ -43,7 +36,7 @@ public class VanillaFeatures extends Extension {
         MinecraftServer.getCommandManager().register(new SetBlockCommand());
         MinecraftServer.getCommandManager().register(new TeleportCommand());
 
-        VanillaLootTables.register(MinecraftServer.getLootTableManager());
+        //VanillaLootTables.register(MinecraftServer.getLootTableManager());
 
         try {
             if(!FileUtil.doesFileExist("./extensions/VanillaFeatures"))
@@ -84,7 +77,7 @@ public class VanillaFeatures extends Extension {
 
                 String msg = root.node("join-message", "message").getString().replaceAll("[{player}]", player.getUsername());
                 for (Player p : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
-                    p.sendMessage(ColoredText.of(ChatColor.YELLOW, msg));
+                    //p.sendMessage(ColoredText.of(ChatColor.YELLOW, msg));
                 }
             });
         }
@@ -95,7 +88,7 @@ public class VanillaFeatures extends Extension {
 
                 String msg = root.node("quit-message", "message").getString().replaceAll("[{player}]", player.getUsername());
                 for (Player p : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
-                    p.sendMessage(ColoredText.of(ChatColor.YELLOW, msg));
+                    //p.sendMessage(ColoredText.of(ChatColor.YELLOW, msg));
                 }
             });
         }

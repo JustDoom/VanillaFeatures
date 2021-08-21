@@ -1,4 +1,4 @@
-package com.justdoom.vanillafeatures.entity;
+/**package com.justdoom.vanillafeatures.entity;
 
 import net.minestom.server.entity.EntityType;
 import net.minestom.server.entity.ItemEntity;
@@ -50,4 +50,4 @@ public class FallingBlockEntity extends LivingEntity {
             remove();
         }
     }
-}
+}**/

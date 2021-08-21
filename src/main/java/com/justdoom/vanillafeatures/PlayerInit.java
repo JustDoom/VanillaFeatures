@@ -1,31 +1,10 @@
 package com.justdoom.vanillafeatures;
 
-import com.justdoom.vanillafeatures.blocks.VanillaBlocks;
-import com.justdoom.vanillafeatures.gamedata.loottables.VanillaLootTables;
-import net.minestom.server.MinecraftServer;
-import net.minestom.server.chat.ChatColor;
-import net.minestom.server.chat.ColoredText;
-import net.minestom.server.entity.GameMode;
-import net.minestom.server.entity.ItemEntity;
-import net.minestom.server.entity.Player;
-import net.minestom.server.event.GlobalEventHandler;
-import net.minestom.server.event.item.ItemDropEvent;
-import net.minestom.server.event.item.PickupItemEvent;
-import net.minestom.server.event.player.PlayerBlockBreakEvent;
-import net.minestom.server.event.player.PlayerDisconnectEvent;
-import net.minestom.server.event.player.PlayerLoginEvent;
-import net.minestom.server.instance.InstanceContainer;
-import net.minestom.server.item.ItemStack;
-import net.minestom.server.network.ConnectionManager;
-import net.minestom.server.utils.Position;
-import net.minestom.server.utils.Vector;
-import net.minestom.server.utils.time.TimeUnit;
-
 public class PlayerInit {
 
     public PlayerInit(){
 
-        ConnectionManager connectionManager = MinecraftServer.getConnectionManager();
+        /**ConnectionManager connectionManager = MinecraftServer.getConnectionManager();
         connectionManager.addPlayerInitialization(player -> {
             if(VanillaFeatures.getInstance().root.node("block-drops", "enabled").getBoolean()) {
                 player.addEventCallback(PlayerBlockBreakEvent.class, event -> {
@@ -49,6 +28,6 @@ public class PlayerInit {
                 Vector velocity = player.getPosition().clone().getDirection().multiply(6);
                 itemEntity.setVelocity(velocity);
             });
-        });
+        });**/
     }
 }
