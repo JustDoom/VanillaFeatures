@@ -1,4 +1,4 @@
-package com.justdoom.vanillafeatures.blocks;
+/**package com.justdoom.vanillafeatures.blocks;
 
 import net.minestom.server.instance.block.Block;
 
@@ -36,7 +36,7 @@ public class BlockState {
      * @param key the property key
      * @return the value of the property
      * @throws IllegalArgumentException if the key does not correspond to an existing property
-     */
+     *
     public String get(String key) {
         String result = properties.get(key);
         if(result == null) {
@@ -54,7 +54,7 @@ public class BlockState {
      * @param key the key of the property to change
      * @param value the value of the property
      * @return the corresponding blockstate (they are pooled inside this blockstate's parent BlockStates)
-     */
+     *
     public BlockState with(String key, String value) {
         return parent.getStateWithChange(properties, key, value);
     }
@@ -65,3 +65,4 @@ public class BlockState {
         return Block.fromStateId(blockId)+"{"+props+"}";
     }
 }
+        **/

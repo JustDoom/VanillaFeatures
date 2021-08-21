@@ -1,4 +1,4 @@
-package com.justdoom.vanillafeatures.blocks;
+/**package com.justdoom.vanillafeatures.blocks;
 
 import net.minestom.server.data.Data;
 import net.minestom.server.entity.Player;
@@ -56,7 +56,7 @@ public abstract class VanillaBlock extends CustomBlock {
      * @param blockPosition
      * @param data
      * @return
-     */
+     *
     @Override
     public Data createData(Instance instance, BlockPosition blockPosition, Data data) {
         return data;
@@ -79,7 +79,7 @@ public abstract class VanillaBlock extends CustomBlock {
 
     /**
      * Interact with this block, depending on properties
-     */
+     *
     @Override
     public boolean onInteract(Player player, Player.Hand hand, BlockPosition blockPosition, Data data) {
         return false;
@@ -115,7 +115,7 @@ public abstract class VanillaBlock extends CustomBlock {
      * @param position     position at which this block is. DON'T CACHE IT
      * @param originalData data present at the current position
      * @return a Data object with the loaded information. Can be originalData, a new object, or even null if you don't use the TE info
-     */
+     *
     public Data readBlockEntity(NBTCompound nbt, Instance instance, BlockPosition position, Data originalData) {
         return originalData;
     }
@@ -124,3 +124,4 @@ public abstract class VanillaBlock extends CustomBlock {
         return blockStates;
     }
 }
+        **/
